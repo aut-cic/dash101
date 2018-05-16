@@ -39,7 +39,7 @@ func main() {
 	}
 
 	go func() {
-		fmt.Printf("Registerator Listen: %s\n", srv.Addr)
+		fmt.Printf("LiveTv Listen: %s\n", srv.Addr)
 		// service connections
 		if err := srv.ListenAndServe(); err != nil {
 			log.Fatal("Listen Error:", err)
@@ -51,7 +51,7 @@ func main() {
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt)
 	<-quit
-	fmt.Println("Registerator Shutdown")
+	fmt.Println("LiveTv Shutdown")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
