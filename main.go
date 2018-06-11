@@ -23,9 +23,22 @@ import (
 )
 
 func handle() http.Handler {
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
-	r.Static("/", "./")
+	r.NoRoute(func(c *gin.Context) {
+		c.JSON(http.StatusNotFound, gin.H{"error": "404 Not Found"})
+	})
+	r.Use(gin.ErrorLogger())
+
+	r.Static("/assets", "./ui/dist")
+	r.Static("/dash", "./dash")
+	r.StaticFile("/", "./ui/dist/index.html")
+
+	api := r.Group("/api")
+	{
+		api.GET("/about", aboutHandler)
+	}
 
 	return r
 }
@@ -58,4 +71,8 @@ func main() {
 	if err := srv.Shutdown(ctx); err != nil {
 		log.Fatal("Shutdown Error:", err)
 	}
+}
+
+func aboutHandler(c *gin.Context) {
+	c.String(http.StatusOK, "18.20 is leaving us")
 }
