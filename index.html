@@ -1,0 +1,699 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>IoT101</title>
+
+    <link rel="icon" type="image/icon" href="img/favicon.png">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/material.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Introduction to</h2>
+          <h1>Internet of Things Platforms</h1>
+          <h5><a href="http://github.com/1995parham" >@1995parham</a></h5>
+        </section>
+        <section>
+          <section>
+            <h2>Parham Alvani</h2>
+            <p>parham.alvani@gmail.com</p>
+            <p><a href="https://1995parham.github.io/">1995parham.github.io</a></p>
+            <img src="img/1995parham-logo.png" alt="1995parham-logo" width="500px">
+          </section>
+          <section>
+            <h2>Who I am?</h2>
+            <p><i class="material-icons">school</i> BSc. Software Engineering @ Amirkabir University of Technology</p>
+            <p><i class="material-icons">school</i> MSc. Computer Networks @ Amirkabir University of Technology</p>
+            <p><i class="material-icons">domain</i> Have been in IoT/Platforms since June 2015 (Ordibehesht 1394)</p>
+            <img src="img/ceit-logo.png" alt="ceit-logo" width="100px">
+            <img src="img/aut-logo.png" alt="aut-logo" width="100px">
+          </section>
+          <section>
+            <h2>What I have done?</h2>
+            <ul>
+              <li><a href="https://I1820.github.io/">I1820</a>: IoT Platform</li>
+              <li><a href="https://bambil.github.io/">Bamboo</a>: Distributed IoT Platform</li>
+              <li>Home automation system</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Where do I work?</h2>
+            <h3 style="color: #27004c;">Amirkabir University of Technology</h3>
+            <h3 style="color: #00274c;">IoT Research Center</h3>
+            <img src="img/aiotrc-logo.png" alt="aiotrc-logo" width="500px">
+          </section>
+          <section>
+            <h2>Where do I work?</h2>
+            <h1 style="color: rgb(0, 101, 163);">Bambil</h1>
+            <img src="img/bambil-logo.png" alt="bambil-logo" width="200px">
+          </section>
+          <section>
+            <h2>Let's Light the Lamp</h2>
+            <img src="img/light-the-lamp.jpg" alt="Let's Light the Lamp" width="600px">
+          </section>
+        </section>
+        <section>
+          <div class="toc"></div>
+        </section>
+        <section>
+          <div class="toc" data-selected="IoT Big Picture"></div>
+        </section>
+        <section>
+          <section>
+            <h2>IoT ?!</h2>
+            <div>
+              <header>Wikipedia</header>
+              <p>
+                The network of physical objects or <strong>things</strong> embedded with electronics,
+                software, sensors, and connectivity to enable objects to exchange data with the
+                manufacturer, operator and/or other connected devices based on the infrastructure of
+                ITU's Global Standards Initiative
+              </p>
+            </div>
+          </section>
+          <section>
+            <h2>IoT ?!</h2>
+            <div>
+              <header>ITU</header>
+              <p>
+                A global infrastructure for the information society, enabling advanced services
+                by interconnecting (physical and virtual) things based on existing and evolving
+                interoperable information and communication technologies
+              </p>
+            </div>
+          </section>
+          <section>
+            <h2>IoT ?!</h2>
+            <div>
+              <header>Whatis</header>
+              <p>
+                A scenario in which objects, animals or people are provided with unique
+                identifiers and the ability to transfer data over a network without requiring
+                human-to-human or human-to-computer interaction.
+              </p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <h2>What is IoT?</h2>
+          <ul>
+            <li>A <span class="material-italic">thing</span> in IoT can be any natural or man-made object can be assigned <span class="material-italic">IP(v6) address</span>.</li>
+            <li>So far, the Internet of Things has been most closely associated with machine-to-machine (M2M) communication.</li>
+            <li>Although the concept wasn’t named until 1999, the Internet of Things has been in development for decades.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>IoT’s Applications</h2>
+          <ul>
+            <li>Environmental monitoring</li>
+            <li>Infrastructure management</li>
+            <li><strong>Smart metering</strong></li>
+            <li>Manufacturing</li>
+            <li>Energy management</li>
+            <li>Medical and healthcare systems</li>
+            <li><strong>Building and home automation</strong></li>
+            <li><strong>Transportation</strong></li>
+            <li>...</li>
+          </ul>
+        </section>
+        <section>
+          <img src="img/iot-big-picture.png" alt="iot-big-picture">
+        </section>
+        <!--
+        <section>
+          <h2>Research Topics in IoT</h2>
+          <ul>
+            <li>Fog Computing</li>
+            <li>Machine Learning</li>
+            <li>Wireless Sensor Networks</li>
+            <li>SDN/IoT</li>
+            <li>...</li>
+          </ul>
+        </section>
+        -->
+        <section>
+          <div class="toc" data-selected="IoT Platforms, Why ?"></div>
+        </section>
+        <section>
+          <section>
+            <h2>Why are we using smart things alone?</h2>
+            <p>
+              The IoT technologies in sync up with <span class="material-bold">cloud</span>
+              infrastructures are to result in people-centric <span class="material-italic">smarter</span> environments.
+            </p>
+          </section>
+          <section>
+            <h2>What is an IoT platform ?</h2>
+            <div>
+              <header>Internet of Things Wiki</header>
+              <p>
+                In simple words the purpose of any IoT device is to connect with other IoT devices and
+                applications (cloud-based mostly) to relay information using internet transfer protocols.
+              </p>
+              <p>
+                The gap between the device sensors and data networks is filled by an <span class="material-italic">IoT Platform</span>.
+              </p>
+            </div>
+          </section>
+          <section>
+            <h2>What is thier job ?</h2>
+            <ul>
+              <li>Application point of view</li>
+              <li>Things point of view</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Application point of view</h2>
+            <img src="img/platforms-usecase-software.png" alt="platform-usecase-software" height="550px">
+          </section>
+          <section>
+            <h2>Things point of view</h2>
+            <img src="img/platforms-usecase-thing.png" alt="platform-usecase-thing" height="550px">
+          </section>
+        </section>
+        <section>
+          <h2>Platforms in bigger scope</h2>
+          <ul>
+            <li>Data Regulation and Governance</li>
+            <li>IoT Operators</li>
+            <li>Rules and regulations applies on <span class="material-bold">IoT Operator</span> instead of <span class="material-italic">Customers</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>IoT Platforms vs IoT Middlewares</h2>
+          <ul>
+            <li><span class="material-bold">Middleware</span> connects different, often complex and already existing programs that were not originally designed to be connected.</li>
+            <li>
+              Middleware is part of the architecture enabling connectivity for huge numbers of <span class="material-italic">diverse</span>
+              Things by providing a connectivity layer for <span class="material-bold">sensors</span> and also
+              for the <span class="material-bold">application layers</span> that provide services that ensure effective communications among software.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>IoT Platforms contains IoT Middlewars</h2>
+        </section>
+        <section>
+          <h2>Middleware is a connectivity layer</h2>
+          <img src="img/platforms-1.png" alt="Platforms over view">
+        </section>
+        <section>
+          <h2>Middleware is a connectivity layer (Complex View)</h2>
+          <img src="img/platforms-2.png" alt="Platforms complex view">
+        </section>
+        <section>
+          <section>
+            <h2>IoT Platforms Features</h2>
+            <ul>
+              <li class="material-bold">Support of heterogeneous devices</li>
+              <ul>
+                <li>Things-Platform Connectivity</li>
+                <ul>
+                  <li>Generated SDK</li>
+                  <li>Library</li>
+                </ul>
+                <li>Thing Data Modeling</li>
+              </ul>
+              <li>Open Source</li>
+              <li class="material-italic">API</li>
+              <ul>
+                <li>ReST (Representational State Transfer)</li>
+                <li>RPC (Remote Procedure Call)</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2>IoT Platforms Features</h2>
+            <ul>
+              <li>Data Access Control</li>
+              <li>Type:
+                <ul>
+                  <li>PaaS (Platform-as-a-Service)</li>
+                  <li>SaaS (Software-as-a-Service)</li>
+                  <li>Local Installation</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>IoT Platforms Features</h2>
+            <ul>
+              <li>Services:
+                <ul>
+                  <li>Data Collection</li>
+                  <li>Monitoring</li>
+                  <li>Event Delivering</li>
+                  <li>(Thing) Discovery</li>
+                  <li>Big Data Streaming</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>Real platform architecture</h2>
+          <img src="img/platforms-components.png" alt="platforms components">
+        </section>
+        <section>
+          <section>
+            <h2>Platforms Components</h2>
+            <dl>
+              <dt>Conectivity and Normalization</dt>
+              <dd>Agents and libraries that ensure constant object connectivity and harmonized data formats</dd>
+              <dt>Device Management</dt>
+              <dd>Backend tool for the management of device status, <span class="material-italic">remote software deployment and updates</span></dd>
+            </dl>
+          </section>
+          <section>
+            <h2>Platforms Components</h2>
+            <dl>
+              <dt>Processing and action mamagement</dt>
+              <dd>Rule engine that allows for (real-time) actions based on incoming sensor and device data</dd>
+              <dt>Data visualization</dt>
+              <dd>Graphical depiction of (real-time) sensor data</dd>
+            </dl>
+          </section>
+          <section>
+            <h2>Platforms Components</h2>
+            <dl>
+              <dt>Analytics</dt>
+              <dd>Algorithms for advanced calculations and machine learning</dd>
+              <dt>Additional tools</dt>
+              <dd>Further development tools (e.g., app prototyping, access management, reporting)</dd>
+            </dl>
+          </section>
+          <section>
+            <h2>Platforms Components</h2>
+            <dl>
+              <dt>External interfaces</dt>
+              <dd>APIs, SDKs and gateways that acts as interfaces for 3rd party systems</dd>
+              <dt>Database</dt>
+              <dd>Repository that stores the important data sets</dd>
+            </dl>
+          </section>
+        </section>
+        <section>
+          <h2>Which protocol we must use for connectivity?</h2>
+          <ul>
+            <li>WSN Protocols</li>
+            <li>TCP/IP Based protocols</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Protocols in TCP/IP based Platforms</h2>
+          <img src="img/protocols.png" alt="protocols in platforms">
+        </section>
+        <section>
+          <h2>Can you build an IoT system with familiar Web technologies?</h2>
+          <ul>
+            <li>Yes you can, although the result would not be as efficient as with the newer protocols.</li>
+            <li>But efficiency depends on our agents and things</li>
+            <li>At the end, what we want to connect ?</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Review on some protocols</h2>
+          <h3>TCP/IP Based for agent/platform communication</h3>
+          <dl>
+            <dt>CoAP</dt>
+            <dd>UDP - Rqst/Rspnse</dd>
+            <dt>MQTT</dt>
+            <dd>UDP - Pub/Subsrb</dd>
+            <dt>HTTP</dt>
+            <dd>TCP - Rqst/Rspnse</dd>
+            <dt>SNMP</dt>
+            <dd>UDP - Rqst/Rspnse</dd>
+          </dl>
+        </section>
+        <section>
+          <div class="toc" data-selected="Review on Popular Platforms"></div>
+        </section>
+        <section>
+          <img src="img/platforms-wcloud.png" alt="Word Cloud of Platforms">
+        </section>
+        <section>
+          <section>
+            <h2>Kaa</h2>
+            <a href="https://www.kaaproject.org/"><img src="img/kaa.svg" alt="Kaa logo"></a>
+            <a href="https://www.kaaiot.io/"><img src="img/kaaiot.svg" width="165px" alt="KaaIoT logo"></a>
+          </section>
+          <section>
+            <h2>Kaa [Wikipedia]</h2>
+            <p>
+              Kaa is a fictional character that Rudyard Kipling describes him as an exceptionally long, yellowish Indian rock python.
+            </p>
+            <h2>Kaa [Kaa]</h2>
+            <p>
+              100% open-source Internet of Things middleware platform for everyone.
+            </p>
+          </section>
+          <section>
+            <h2>What is Kaa?</h2>
+            <ul>
+              <li>Reliable foundation for developing your connected products.</li>
+              <li><span class="material-italic">Transport-agnostic</span> link between the hardware and application worlds.</li>
+              <li>Much more than just a message bus.</li>
+              <li><span class="material-bold">Customizable</span> middleware that implements necessary functional patterns for the IoT.</li>
+              <li>Cloud enablement software for your hardware products.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Kaa Architecture</h2>
+            <img src="img/kaa-high-level-architecture.png" alt="kaa-high-level-architecture" width="500px">
+          </section>
+          <section>
+            <h2>Kaa Server</h2>
+            <p>
+              The Kaa server acts as a foundation for your custom-tailored IoT back-end system.
+              It offers a number of mechanisms for internal customization and integration with external systems:
+            </p>
+            <ul>
+              <li>REST interfaces for integration with product-specific services</li>
+              <li>Log appenders for integration with analytics</li>
+              <li>pluggable implementations of custom transports</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Kaa Server</h2>
+            <p>The Kaa server was designed to handle <span class="material-bold">millions of connected devices</span> under peak pressure without ever getting tired.</p>
+            <img src="img/kaa-server.svg" alt="kaa-server" width="500px" style="background-color: #666;">
+          </section>
+          <section>
+            <h2>Kaa Data Model</h2>
+            <ul>
+              <li>Works with structured and unstructured data</li>
+              <li>Well-structured data provides excellent material for any manipulation and analytics</li>
+              <li>This kind of data also helps abstract out any unimportant details of the low-level implementation and your hardware.</li>
+              <li>Kaa ensures that even gadgets based on very different technologies can be managed and operated identically, as long as they share the same set of data schemas.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Kaa Generated SDK</h2>
+            <ul>
+              <li>Kaa endpoint SDKs are available in Java, C++, and C, and are designed to be embedded into your client application (or firmware).</li>
+              <li>They handle client-server communication, authentication, data marshalling, encryption, persistence, and other functions provided by the platform.</li>
+          </section>
+          <section>
+            <h2>What does kaa do for us?</h2>
+            <ul>
+              <li>Messaging across endpoints</li>
+              <li>Notification</li>
+              <li>Collecting data from endpoints</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Messaging across endpoints</h2>
+            <img src="img/kaa-messaging.png" alt="kaa messaging">
+          </section>
+          <section>
+            <h2>Messaging across endpoints</h2>
+            <ul>
+              <li>Kaa allows for delivery of events, which are structured messages, across endpoints</li>
+              <li>The event class family can be used by one or multiple applications, thus the event can be shared between applications</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Notification</h2>
+            <img src="img/kaa-notification.png" alt="kaa notification">
+          </section>
+          <section>
+            <h2>Notification</h2>
+            <ul>
+              <li>Kaa uses notifications to distribute structured messages, posted within notification topics, from the server to endpoints</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Collecting data from endpoints</h2>
+            <img src="img/kaa-collecting-data.png" alt="kaa data collecting">
+          </section>
+          <section>
+            <h2>Collecting data from endpoints</h2>
+            <ul>
+              <li>Kaa provides rich capabilities for collecting and storing structured data from endpoints</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Distribution Method</h2>
+            <ul>
+              <li>Open Source</li>
+              <li>PaaS</li>
+              <li>The ground-breaking Kaa 1.0.0 will be available soon for the pre-release trial among early subscribers.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Let's learn it in code</h2>
+            <img src="img/show-code.jpg" alt="show me the code">
+          </section>
+          <section>
+            <h2>2 Main Pieces</h2>
+            <ul>
+              <li>Kaa SDK (Agent)</li>
+              <li>Kaa Server</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Thingsboard</h2>
+            <a href="https://thingsboard.io/"><img src="img/thingsboard.png" alt="thingsboard logo"></a>
+          </section>
+          <section>
+            <h2>What is ThingsBoard?</h2>
+            <p>
+              Open-source IoT Platform - Device management, data collection, processing and visualization.
+            </p>
+          </section>
+          <section>
+            <h2>What does thingsboard do for us?</h2>
+            <ul>
+              <li class="material-bold">Provision and manage devices and assets</li>
+              <ul>
+                <li>Provision, monitor and control your IoT entities in secure way using rich server-side APIs.</li>
+                <li>Define relations between your devices, assets, customers or any other entities.</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2>What does thingsboard do for us?</h2>
+            <ul>
+              <li class="material-bold">Collect and visualize data</li>
+              <li>
+                <ul>
+                  <li>Collect and store telemetry data in scalable and fault-tolerant way.</li>
+                  <li>Visualize your data with built-in or custom widgets and flexible dashboards.</li>
+                  <li>Share dashboards with your customers.</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>What does thingsboard do for us?</h2>
+            <ul>
+              <li class="material-bold">Process and React</li>
+              <ul>
+                <li>Define data processing rules and trigger reactions using plugins.</li>
+                <li>Raise alarms on incoming telemetry events or attribute updates.</li>
+                <li>Enable use-case specific features using customizable rules and plugins.</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2>What does thingsboard do for us?</h2>
+            <ul>
+              <li class="material-bold">IoT Gateway</li>
+              <ul>
+                <li>Integrate devices connected to legacy and third-party systems using existing protocols.</li>
+              </ul>
+            </ul>
+          </section>
+          <section>
+            <h2>Supported Protocols</h2>
+            <ul>
+              <li>MQTT</li>
+              <li>CoAP</li>
+              <li>HTTP</li>
+            </ul>
+          </section>
+          <section>
+            <img src="img/thingsboard-rule-engine.svg" alt="thingsboard rule engine">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Home-Assistant</h2>
+            <a href="https://home-assistant.io/"><img src="img/home-assistant.png" alt="home-assistant logo"></a>
+          </section>
+          <section>
+            <h2>What is Home-Assistant?</h2>
+            <p>Open-source home automation platform running on Python 3</p>
+          </section>
+          <section>
+            <h2>What does Home-Assistant do for us?</h2>
+            <ul>
+              <li>Home Assistant will track the state of all the devices in your home, so you don't have to</li>
+              <li><span class="material-bold">Control</span> all your devices from a single, mobile-friendly, interface</li>
+              <li>Set up advanced <span class="material-italic">rules</span> to control devices and bring your home alive.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Automating Home Assistant</h2>
+            <pre><code>
+            (trigger)    When Paulus arrives home
+            (condition)  and it is after sunset:
+            (action)     Turn the lights in the living room on
+            </code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Bamboo</h2>
+            <a href="https://bambil.github.io"><img src="img/bamboo.png" alt="Bamboo logo" height="300px"></a>
+          </section>
+          <section>
+            <h2>What is Bamboo?</h2>
+            <p>
+              Bamboo is a product of <a href="https://github.com/bambil">Bambil</a> and former developers of I1820, which provides:
+            </p>
+            <ul>
+              <li>Discovery Service</li>
+              <li>Data Collection Service</li>
+              <li>Configuration Service</li>
+              <li>Realtime Service</li>
+            </ul>
+            <p>
+              Bamboo uses MQTT as communication protocol for things and HTTP as API provider for human users.
+              It stores all collected data in a Time-Series database named InfluxDB.
+            </p>
+          </section>
+          <section>
+            <h2>Bamboo Architecture</h2>
+            <p>
+              Bamboo tries to implement IoT platform in microservices archiecture for the first-time in Iran.
+              Thanks to Bambil founder knowledge, Bamboo uses last technologies in infrastructure area.
+            </p>
+          </section>
+          <section>
+            <h2>What does Bamboo do for us?</h2>
+            <ul>
+              <li>Collecting data from the endpoints</li>
+              <ul>
+                <li><span class="material-italic">Active</span>: Fetchs data from the agents using requests</li>
+                <li><span class="material-bold">Passive</span>: Collects data from agent's periodic push</li>
+              </ul>
+              <li>Schema less but model based thing definition</li>
+              <li>InfluxDB supported</li>
+              <li>Provides streams for data analyzers</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Bamboo Components</h2>
+            <ul>
+              <li>Connectivity</li>
+              <li>Log (Periodic Push)</li>
+              <li>Trap</li>
+              <li>Set</li>
+              <li>Get</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Microsoft Azure</h3>
+            <h2>IoT Hub</h2>
+            <a href="https://azure.microsoft.com/en-us/services/iot-hub/"><img src="img/msazure.png" alt="Microsoft azure logo" height="300px"></a>
+          </section>
+          <section>
+            <h3>Connect, monitor, and manage billions of IoT assets</h3>
+          </section>
+          <section>
+            <ul>
+              <li>Establish bi-directional communication with billions of IoT devices</li>
+              <li>Work with familiar platforms and protocols</li>
+              <ul>
+                <li>Open-source device SDKs for multiple platforms</li>
+                <li>HTTP, Advanced Message Queuing Protocol (AMQP), and MQ Telemetry Transport (MQTT)</li>
+              </ul>
+              <li>Authenticate per device for security-enhanced IoT solutions</li>
+              <li>Manage your IoT devices at scale with device management</li>
+              <li>Extend the power of the cloud to your edge device</li>
+            </ul>
+          </section>
+          <section>
+            <img src="img/azure-iot-reference-architecture-1.png" alt="azure-iot-reference-architecture-1">
+          </section>
+          <section>
+            <img src="img/azure-iot-reference-architecture-2.png" alt="azure-iot-reference-architecture-2">
+          </section>
+          <section>
+            <h2>Azure IoT Hub Integration</h2>
+          </section>
+        </section>
+        <section>
+          <h2>Thank you</h2>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        controls: true,
+        slideNumber: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            condition: function() {
+              if (typeof hljs !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { hljs.initHighlightingOnLoad(); }
+          },
+          {
+            src: 'plugin/toc.js',
+            async: true,
+            condition: function() {
+              if (typeof toc !== undefined) {
+                return true;
+              } else {
+                return false;
+              }
+            },
+            callback: function() { toc.initToCOnLoad([
+              'IoT Big Picture',
+              'IoT Platforms, Why ?',
+              'Review on Popular Platforms'
+            ]); }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
