@@ -14,10 +14,11 @@ const toc = {
     for (let section of sections) {
       const titlesListElement = document.createElement('ul');
 
-      for (let title of titles) {
+      for (let i = 0; i < titles.length; i++) {
+        let title = titles[i]
         let node = document.createElement('li');
 
-        if (section.dataset.selected && section.dataset.selected === title) {
+        if (section.dataset.selected && (section.dataset.selected === title || section.dataset.selected == i)) {
           node.className += 'material-select'
         }
 
