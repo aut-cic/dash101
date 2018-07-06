@@ -66,9 +66,57 @@
           </ul>
         </section>
         <section>
+          <h3>Basic Approach: Adapt Video to Web rather than Changing the Web</h3>
           <ul>
-            <li>Basic Approach: Adapt Video to Web rather than Changing the Web</li>
-            <li>Streaming realized by continuous Short Downloads</li>
+            <li><span class="material-bold">Streaming</span> realized by continuous Short Downloads</li>
+            <ul>
+              <li>Downloads in small chunks to minimize bandwidth waste</li>
+              <li>Enables minitoring consumption and tracking clients</li>
+            </ul>
+            <li><span class="material-bold">Adaption</span> to Dynamic Condition and Device Capabilities</li>
+            <ul>
+              <li>Adapts to dynamic conditions anywhere on the path through the internet or home network</li>
+              <li>Adapts to display resolution, CPU and memory resources of the client</li>
+              <li>Facilitates <span class="material-italic">any device, anywhere, anytime</span> paradigm</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <h3>Basic Approach: Adapt Video to Web rather than Changing the Web</h3>
+          <ul>
+            <li>Improved <span class="material-bold">Quality of Experience</span></li>
+            <ul>
+              <li>Enables faster start-up and seeking (compared to progressive download)</li>
+              <li>Reduces and may eliminate rebuffering, skips, freezes and stutters</li>
+            </ul>
+            <li>Use of <span class="material-bold">HTTP</span></li>
+            <ul>
+              <li>Well-understood naming/addressing approach</li>
+              <li>Provides easy traversal for all kinds of middleboxes (e.g., NATs, firewalls)</li>
+              <li>Enables cloud access, leverages existing HTTP caching inferastructure</li>
+              <li>Enables client-driven deployments</li>
+              <li>Enables resue of existing web technologies: authentication, authorization, etc</li>
+            </ul>
+          </ul>
+        </section>
+        <section>
+          <div class="toc" data-selected="2"></div>
+        </section>
+        <section>
+          <h4>Goal</h4>
+          <ul>
+            <li>Develop an international, standardized, efficient solution for HTTP-based streaming of MPEG media</li>
+          </ul>
+          <h4>Major Objectives and Design Principles</h4>
+          <ul>
+            <li>Do the necessary, avoid the unnecessary</li>
+            <li>Be lazzy: reuse what exists in terms of codecs, formats, content protection, protocols and signaling</li>
+            <li>Be backward-compatible (as much as possible) to enable deployments aligned with existing proprietary technologies</li>
+            <li>Be forward-looking to provide ability to include new codecs, media types, content protection, deployment models and other relevant metadata</li>
+            <li>Enable efficient deployments for different use cases (live, VoD, time-shifted, etc.)</li>
+            <li>Focus on formats describing functional properties for adptive streaming, not on protocols or end-to-end systems or implementations</li>
+            <li>Enable application standards and proprietary systems to create end-to-end systems based on DASH formats.</li>
+            <li>Support deployments by conformance and reference software, implementation guidelines, etc.</li>
           </ul>
         </section>
         <section style="text-align: left;">
@@ -117,7 +165,8 @@
             },
             callback: function() { toc.initToCOnLoad([
               'Motivation',
-              'Changing the Web?!'
+              'Changing the Web?!',
+              'MPEG - Dynamic Adaptive Streaming over HTTP'
             ]); }
           }
         ]
