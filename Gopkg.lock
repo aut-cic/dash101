@@ -436,13 +436,13 @@
   revision = "8287f3899c8e3d490748e18fe7d438629132914e"
 
 [[projects]]
+  branch = "master"
   name = "github.com/zencoder/go-dash"
   packages = [
     "helpers/ptrs",
     "mpd"
   ]
-  revision = "90d0544e7a560c3a28bc4357e303872d462c5eb0"
-  version = "v2.0"
+  revision = "9b710373c9c751e04e87a8f467c0c7f7b142f6a7"
 
 [[projects]]
   branch = "master"
@@ -494,6 +494,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c2dc507880c8730d30dcdb3713e773b8abeee1f9a3ae26057281f200cfaef8c8"
+  inputs-digest = "dc7a6cf1c641d2f01ea96ca9dcb3253ea6770cac3477f4775a8b8370ca4b5f63"
   solver-name = "gps-cdcl"
   solver-version = 1

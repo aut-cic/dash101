@@ -46,8 +46,8 @@
   name = "github.com/unrolled/secure"
 
 [[constraint]]
+  branch = "master"
   name = "github.com/zencoder/go-dash"
-  version = "2.0.0"
 
 [prune]
   go-tests = true
