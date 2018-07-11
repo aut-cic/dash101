@@ -1,8 +1,6 @@
 package actions
 
 import (
-	"net/http"
-
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/buffalo/middleware"
 	"github.com/gobuffalo/buffalo/middleware/ssl"
@@ -49,7 +47,6 @@ func App() *buffalo.App {
 		app.GET("/mpd", MPDHandler)
 
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
-		app.ServeFiles("/cdn", http.Dir("../cdn"))
 	}
 
 	return app
