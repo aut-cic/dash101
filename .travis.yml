@@ -1,32 +1,25 @@
-jobs:
-  include:
-    - stage: test
-      language: go
-      go: 1.9
-      dist: trusty
-      before_install:
-        # Setup some env variables
-        - GO_FILES=$(find . -iname '*.go' )  # All the .go files
-        - PKGS=$(go list ./... )             # All the import paths
+language: go
 
-        # Setup dependency management tool
-        - go get -u github.com/golang/dep/cmd/dep
+go: 1.9
 
-        # Install linters
-        - go get -u github.com/golang/lint/golint              # Linter
-        - go get -u github.com/kisielk/errcheck                # errcheck checks that you checked errors.
+before_install:
+  # Setup some env variables
+  - GO_FILES=$(find . -iname '*.go' )  # All the .go files
+  - PKGS=$(go list ./... )             # All the import paths
 
-      install:
-        - dep ensure
-      script:
-        - go vet -v $PKGS                   # go vet is the official Go static analyzer
-        - errcheck -verbose $PKGS           # Check for unchecked errors
-        - golint -set_exit_status $PKGS     # One last linter
+  # Setup dependency management tool
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh # go dep
 
-    - language: node_js
-      node_js: "8"
-      before_install:
-        - cd ui
-      script:
-        - npm run lint
-        - npm run build
+  # Install linters
+  - go get -u github.com/golang/lint/golint              # Linter
+  - go get -u github.com/kisielk/errcheck                # errcheck checks that you checked errors.
+
+install:
+  - go get github.com/gobuffalo/buffalo/buffalo
+  - dep ensure
+
+script:
+  - go vet -v $PKGS                   # go vet is the official Go static analyzer
+  - errcheck -verbose $PKGS           # Check for unchecked errors
+  - golint -set_exit_status $PKGS     # One last linter
+  - buffalo test
