@@ -1,78 +1,38 @@
-/*
- * +===============================================
- * | Author:        Parham Alvani <parham.alvani@gmail.com>
- * |
- * | Creation Date: 06-05-2018
- * |
- * | File Name:     hello.go
- * +===============================================
- */
-
 package main
 
 import (
-	"context"
-	"fmt"
 	"log"
-	"net/http"
-	"os"
-	"os/signal"
-	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/AUTProjects/livetv/actions"
 )
 
-func handle() http.Handler {
-	gin.SetMode(gin.ReleaseMode)
-	r := gin.Default()
-
-	r.NoRoute(func(c *gin.Context) {
-		c.JSON(http.StatusNotFound, gin.H{"error": "404 Not Found"})
-	})
-	r.Use(gin.ErrorLogger())
-
-	r.Static("/assets", "./ui/dist")
-	r.Static("/dash", "./dash")
-	r.StaticFile("/", "./ui/dist/index.html")
-
-	api := r.Group("/api")
-	{
-		api.GET("/about", aboutHandler)
-	}
-
-	return r
-}
-
+// main is the starting point to your Buffalo application.
+// you can feel free and add to this `main` method, change
+// what it does, etc...
+// All we ask is that, at some point, you make sure to
+// call `app.Serve()`, unless you don't want to start your
+// application that is. :)
 func main() {
-	r := handle()
-
-	srv := &http.Server{
-		Addr:    ":8080",
-		Handler: r,
-	}
-
-	go func() {
-		fmt.Printf("LiveTv Listen: %s\n", srv.Addr)
-		// service connections
-		if err := srv.ListenAndServe(); err != nil {
-			log.Fatal("Listen Error:", err)
-		}
-	}()
-
-	// Wait for interrupt signal to gracefully shutdown the server with
-	// a timeout of 5 seconds.
-	quit := make(chan os.Signal)
-	signal.Notify(quit, os.Interrupt)
-	<-quit
-	fmt.Println("LiveTv Shutdown")
-
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-	if err := srv.Shutdown(ctx); err != nil {
-		log.Fatal("Shutdown Error:", err)
+	app := actions.App()
+	if err := app.Serve(); err != nil {
+		log.Fatal(err)
 	}
 }
 
-func aboutHandler(c *gin.Context) {
-	c.String(http.StatusOK, "18.20 is leaving us")
-}
+/*
+# Notes about `main.go`
+
+## SSL Support
+
+We recommend placing your application behind a proxy, such as
+Apache or Nginx and letting them do the SSL heaving lifting
+for you. https://gobuffalo.io/en/docs/proxy
+
+## Buffalo Build
+
+When `buffalo build` is run to compile your binary this `main`
+function will be at the heart of that binary. It is expected
+that your `main` function will start your application using
+the `app.Serve()` method.
+
+*/
