@@ -1,0 +1,11 @@
+<div>
+  <video id="videoPlayer" controls></video>
+</div>
+<script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+<script>
+  (function(){
+    var url = "/mpd";
+    var player = dashjs.MediaPlayer().create();
+    player.initialize(document.querySelector("#videoPlayer"), url, true);
+  })();
+</script>
