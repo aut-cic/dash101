@@ -38,7 +38,9 @@ func MPDHandler(c buffalo.Context) error {
 	if err != nil {
 		return c.Error(http.StatusInternalServerError, err)
 	}
-	videoAS.SetNewSegmentTemplate(107520, "/cdn/$RepresentationID$/init-stream0.m4s", "/cdn/$RepresentationID$/chunk-stream0-$Number%05d$.m4s", 1, 12800)
+	if _, err := videoAS.SetNewSegmentTemplate(107520, "/cdn/$RepresentationID$/init-stream0.m4s", "/cdn/$RepresentationID$/chunk-stream0-$Number%05d$.m4s", 1, 12800); err != nil {
+		return c.Error(http.StatusInternalServerError, err)
+	}
 
 	// bandwidth - in Bits/s (i.e. 1518664).
 	// codecs - codec string for Audio Only (in RFC6381, https://tools.ietf.org/html/rfc6381) (i.e. avc1.4d401f).
