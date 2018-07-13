@@ -1,12 +1,5 @@
 <h1>Welcome to LiveTv</h1>
-<div>
-  <video id="videoPlayer" controls></video>
-</div>
 <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
-<script>
-  (function(){
-    var url = "/mpd";
-    var player = dashjs.MediaPlayer().create();
-    player.initialize(document.querySelector("#videoPlayer"), url, true);
-  })();
-</script>
+<div>
+  <video autoplay data-dashjs-player src="/mpd" type="application/dash+xml"></video>
+</div>
