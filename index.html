@@ -188,6 +188,22 @@
           <blockquote>Talk is cheap. Show me the code.</blockquote>
           <img src="img/GOPHER_STAR_WARS.png" alt="GOPHER_STAR_WARS" width="300px">
         </section>
+        <section>
+          <pre><code data-trim data-noescape>
+m := mpd.NewMPD(mpd.DASH_PROFILE_LIVE, "PT1M6.2S", "PT25.8S")
+
+videoAS, _ := m.AddNewAdaptationSetVideo(
+                    mpd.DASH_MIME_TYPE_VIDEO_MP4,
+                    "progressive",
+                    true, 1)
+
+videoAS.SetNewSegmentTemplate(
+                    107520,
+                    "/cdn/$RepresentationID$/init-stream0.m4s",
+                    "/cdn/$RepresentationID$/chunk-stream0-$Number%05d$.m4s",
+                    1, 12800)
+          </code></pre>
+        </section>
         <section style="text-align: left;">
           <h2>THE END</h2>
         </section>
