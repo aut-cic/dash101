@@ -205,6 +205,41 @@ videoAS.SetNewSegmentTemplate(
                     1, 12800)
           </code></pre>
         </section>
+        <section>
+          <h2>MPD</h2>
+          <pre><code class="xml" data-trim data-noescape>
+&lt;MPD
+  xmlns="urn:mpeg:dash:schema:mpd:2011"
+  profiles="urn:mpeg:dash:profile:isoff-live:2011"
+  type="static"
+  mediaPresentationDuration="PT1M6.2S"
+  minBufferTime="PT25.8S"
+&gt;
+  &lt;Period&gt;
+    &lt;AdaptationSet
+      mimeType="video/mp4"
+      startWithSAP="1"
+      scanType="progressive"
+      segmentAlignment="true"
+    &gt;
+      &lt;SegmentTemplate
+        duration="107520"
+        initialization="/cdn/$RepresentationID$/init-stream0.m4s"
+        media="/cdn/$RepresentationID$/chunk-stream0-$Number%05d$.m4s"
+        startNumber="1" timescale="12800"
+      &gt;
+      &lt;/SegmentTemplate&gt;
+      &lt;Representation bandwidth="36704687"
+        codecs="avc1.64001e"
+        frameRate="25/1"
+        height="480" id="800k" width="640"
+      &gt;
+      &lt;/Representation&gt;
+    &lt;/AdaptationSet&gt;
+  &lt;/Period&gt;
+&lt;/MPD&gt;
+          </code></pre>
+        </section>
         <section style="text-align: left;">
           <h2>THE END</h2>
         </section>
