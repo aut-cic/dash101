@@ -48,7 +48,11 @@ func MPDHandler(c buffalo.Context) error {
 	// frameRate - video frame rate (as a fraction) (i.e. 30000/1001).
 	// width - width of the video (i.e. 1280).
 	// height - height of the video (i.e 720).
-	if _, err := videoAS.AddNewRepresentationVideo(36704687, "avc1.64001e", "800k", "25/1", 640, 480); err != nil {
+	if _, err := videoAS.AddNewRepresentationVideo(118119494, "avc1.64001f", "800k", "25/1", 1280, 720); err != nil {
+		return c.Error(http.StatusInternalServerError, err)
+	}
+
+	if _, err := videoAS.AddNewRepresentationVideo(18260565, "avc1.64000d", "400k", "25/1", 320, 240); err != nil {
 		return c.Error(http.StatusInternalServerError, err)
 	}
 
