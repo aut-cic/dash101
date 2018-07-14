@@ -10,6 +10,10 @@ IRIB TV Live on Your browser based on dash
 Download [sample video](https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_10mb.mp4) and store it,
 then creates it's ts segments and store them into `public/cdn` and serve them.
 
+```sh
+ffmpeg -i ../SampleVideo_1280x720_10mb.mp4 -vf scale=320:240 -use_timeline 0 -f dash 1.mpd
+```
+
 ## Let's Learn ffmpeg
 
 ### Installation
