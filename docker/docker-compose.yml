@@ -1,0 +1,11 @@
+version: '2.2'
+
+services:
+
+ irib_1_dash:
+    image: ffmpeglive-dash
+    volumes: [ "/ramdisk/live/irib5/1:/data" ]
+    environment: { LIVE_CHANN_ID: 1 }
+    cpus: 0.3
+    env_file: ./env
+    network_mode: host

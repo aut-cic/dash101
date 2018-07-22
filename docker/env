@@ -1,0 +1,2 @@
+LIVE_BASE=http://172.16.4.253:9981/stream/channelnumber/
+LIVE_INDEX_BASE=http://live.aut.ac.ir/live/irib5/
