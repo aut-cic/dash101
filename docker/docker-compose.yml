@@ -9,3 +9,11 @@ services:
     cpus: 0.3
     env_file: ./env
     network_mode: host
+
+ irib_2_dash:
+    image: ffmpeglive-dash
+    volumes: [ "/ramdisk/live/irib5/2:/data" ]
+    environment: { LIVE_CHANN_ID: 2 }
+    cpus: 0.3
+    env_file: ./env
+    network_mode: host
