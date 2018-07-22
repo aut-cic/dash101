@@ -11,4 +11,11 @@ echo "Streaming $INPUT"
 
 # ffmpeg -analyzeduration 3000000 -f mpegts -i "$INPUT" -map_metadata -1 -map_chapters -1 -threads 0 -sn -codec:v:0 copy  -flags -global_header -vsync cfr -codec:a:0 libmp3lame -ac 2 -ab 192000 -f hls -max_delay 5000000 -avoid_negative_ts disabled -start_at_zero  -hls_time 2  -hls_flags delete_segments  -hls_list_size 3  -hls_segment_filename "${DIR}/${LIVE_CHANN_ID}-%09d.ts"  -y  "${DIR}/stream.m3u8"
 
-ffmpeg -analyzeduration 3000000 -f mpegts -i "$INPUT" -s qvga -map_metadata -1 -map_chapters -1 -threads 0 -sn -codec:a:0 mp3 -ac 2 -ab 192000 -f dash "${DIR}/1.mpd"
+# ffmpeg -analyzeduration 3000000 -f mpegts -i "$INPUT" -s qvga -map_metadata -1 -map_chapters -1 -threads 0 -sn -codec:a:0 mp3 -ac 2 -ab 192000 -f dash "${DIR}/1.mpd" -window_size 5
+
+ffmpeg -analyzeduration 3000000 -f mpegts -i "$INPUT" -map 0 -map 0 -c:a libfdk_aac -c:v libx264 \
+        -b:v:0 800k -b:v:1 300k -s:v:1 320x170 -profile:v:1 baseline \
+        -profile:v:0 main -bf 1 -keyint_min 120 -g 120 -sc_threshold 0 \
+        -b_strategy 0 -ar:a:1 22050 -use_timeline 1 -use_template 1 \
+        -window_size 5 -adaptation_sets "id=0,streams=v id=1,streams=a" \
+        -f dash "${DIR}/${LIVE_CHANN_ID}.mpd"
