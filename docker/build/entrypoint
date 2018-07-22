@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export DIR="/data"
+chown -R 1000:1000 /data
+
+/start
