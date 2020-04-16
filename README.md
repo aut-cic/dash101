@@ -19,7 +19,7 @@ ffmpeg -i ../SampleVideo_1280x720_10mb.mp4 -vf scale=320:240 -use_timeline 0 -f 
 ### Installation
 
 ```sh
-apt install ffmpeg
+brew install ffmpeg
 ```
 
 ### Live with webcam
