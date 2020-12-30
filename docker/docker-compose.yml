@@ -1,21 +1,12 @@
-version: '2.2'
+---
+version: '3'
 
 services:
-
  irib_1_dash:
-    image: ffmpeglive-dash
-    restart: always
-    volumes: [ "/ramdisk/live/irib5/1:/data" ]
-    environment: { LIVE_CHANN_ID: 1 }
-    cpus: 0.3
-    env_file: ./env
-    network_mode: host
-
- irib_2_dash:
-    image: ffmpeglive-dash
-    restart: always
-    volumes: [ "/ramdisk/live/irib5/2:/data" ]
-    environment: { LIVE_CHANN_ID: 2 }
-    cpus: 0.3
-    env_file: ./env
-    network_mode: host
+  build: ./build
+  restart: always
+  volumes: [ "./data/1:/data" ]
+  environment: { LIVE_CHANN_ID: 1 }
+  cpus: 0.3
+  env_file: ./env
+  network_mode: host

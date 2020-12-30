@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 INPUT=${LIVE_BASE}${LIVE_CHANN_ID}
 echo "Removing ${DIR} files"
