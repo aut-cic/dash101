@@ -1,8 +1,5 @@
 # LiveTv
 
-[![Buffalo](https://img.shields.io/badge/powered%20by-buffalo-blue.svg?style=flat-square)](http://gobuffalo.io)
-[![Travis branch](https://img.shields.io/travis/AUTProjects/LiveTv/master.svg?style=flat-square)](https://travis-ci.org/AUTProjects/LiveTv)
-
 ## Introduction
 IRIB TV Live on Your browser based on dash
 
