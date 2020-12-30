@@ -5,9 +5,15 @@ echo "Removing ${DIR} files"
 rm -f ${DIR}/*
 echo "Streaming $INPUT"
 
-ffmpeg -analyzeduration 3000000 -f mpegts -i "$INPUT" -map a:0 -map v:0 -map v:0 -c:a libfdk_aac -c:v libx264 \
-        -b:v:0 1M -b:v:1 300k -s:v:1 qvga \
-        -use_timeline 1 -use_template 1 \
-        -window_size 5 -adaptation_sets "id=0,streams=v id=1,streams=a" \
-        -remove_at_exit 1 \
-        -f dash "${DIR}/${LIVE_CHANN_ID}.mpd"
+ffmpeg -analyzeduration 3000000 -f mpegts -i "$INPUT" \
+        -map_metadata -1 -map_chapters -1 -threads 0 \
+        -c:v libx264 -x264opts "keyint=24:min-keyint=24:no-scenecut" -r 24 \
+        -c:a aac -b:a 128k \
+        -bf 1 -b_strategy 0 -sc_threshold 0 -pix_fmt yuv420p \
+        -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 -map 0:v:0 -map 0:a:0 \
+        -b:v:0 250k  -filter:v:0 "scale=-2:240" -profile:v:0 baseline \
+        -b:v:1 750k  -filter:v:1 "scale=-2:480" -profile:v:1 main \
+        -b:v:2 1500k -filter:v:2 "scale=-2:720" -profile:v:2 high \
+        -use_timeline 1 -use_template 1 -window_size 5 -adaptation_sets "id=0,streams=v id=1,streams=a" \
+        -streaming 1 -seg_duration 30 -window_size 5 \
+        -f dash "${DIR}/dash.mpd"
